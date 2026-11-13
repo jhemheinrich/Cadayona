@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Registration Form</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Student registration</h1>
+  <p>Fill in your details for the coming semester. Fields marked * are required.</p>
+</header>
+
+<form id="regForm" novalidate>
+
+  <!-- PERSONAL INFORMATION -->
+  <fieldset>
+    <legend>Personal information</legend>
+    <div class="grid">
+      <div class="field">
+        <label class="req" for="name">Full name</label>
+        <input type="text" id="name" placeholder="Cadayona Jhem Heinrich">
+        <span class="error" id="nameError"></span>
+      </div>
+      <div class="field">
+        <label class="req" for="lrn">Student ID / LRN</label>
+        <input type="text" id="lrn" maxlength="12" placeholder="12-digit number">
+        <span class="error" id="lrnError"></span>
+      </div>
+      <div class="field">
+        <label class="req" for="dob">Date of birth</label>
+        <input type="date" id="dob">
+        <span class="hint">Age: <b id="age">—</b></span>
+        <span class="error" id="dobError"></span>
+      </div>
+      <div class="field">
+        <label class="req" for="mobile">Mobile number</label>
+        <input type="tel" id="mobile" pattern="[0-9]{11}" maxlength="11" placeholder="09171234567">
+        <span class="error" id="mobileError"></span>
+      </div>
+      <div class="field">
+        <label class="req" for="instEmail">Institutional email</label>
+        <input type="email" id="instEmail" placeholder="">
+        <span class="error" id="instEmailError"></span>
+      </div>
+      <div class="field">
+        <label class="req" for="persEmail">Personal email</label>
+        <input type="email" id="persEmail" placeholder="">
+        <span class="error" id="persEmailError"></span>
+      </div>
+      <div class="field">
+        <label class="req" for="pw">Portal password</label>
+        <input type="password" id="pw">
+        <span class="hint">8+ characters with upper, lower, number and symbol.</span>
+        <span class="error" id="pwError"></span>
+      </div>
+      <div class="field">
+        <label class="req" for="pw2">Confirm password</label>
+        <input type="password" id="pw2">
+        <span class="error" id="pw2Error"></span>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- ACADEMIC DETAILS -->
+  <fieldset>
+    <legend>Academic details</legend>
+    <div class="grid">
+      <div class="field wide">
+        <label class="req" for="program">Degree program / major</label>
+        <select id="program">
+          <option value="">Select a program…</option>
+          <option>BS Computer Science</option>
+          <option>BS Information Technology</option>
+          <option>BS Computer Engineering</option>
+          <option>BS Accountancy</option>
+          <option>BSEd – English</option>
+        </select>
+        <span class="error" id="programError"></span>
+      </div>
+      <div class="field">
+        <span class="label req">Year level</span>
+        <div class="options">
+          <label><input type="radio" name="year" value="1st Year"> 1st</label>
+          <label><input type="radio" name="year" value="2nd Year"> 2nd</label>
+          <label><input type="radio" name="year" value="3rd Year"> 3rd</label>
+          <label><input type="radio" name="year" value="4th Year"> 4th</label>
+        </div>
+        <span class="error" id="yearError"></span>
+      </div>
+      <div class="field">
+        <span class="label req">Enrollment status</span>
+        <div class="options">
+          <label><input type="radio" name="status" value="Regular"> Regular</label>
+          <label><input type="radio" name="status" value="Irregular"> Irregular</label>
+        </div>
+        <span class="error" id="statusError"></span>
+      </div>
+      <div class="field">
+        <label class="req" for="units">Units to enroll</label>
+        <input type="number" id="units" min="3" max="24">
+        <span class="hint">3 to 24. Regular students need at least 15.</span>
+        <span class="error" id="unitsError"></span>
+      </div>
+      <div class="field">
+        <label class="req" for="gwa">GPA / GWA</label>
+        <input type="number" id="gwa" min="1" max="5" step="0.01" placeholder="1.75">
+        <span class="hint">1.00 (highest) to 5.00.</span>
+        <span class="error" id="gwaError"></span>
+      </div>
+      <div class="field wide">
+        <span class="label req">Laboratory courses</span>
+        <div class="options">
+          <label><input type="checkbox" name="labs" value="Physics Lab"> Physics Lab</label>
+          <label><input type="checkbox" name="labs" value="Chemistry Lab"> Chemistry Lab</label>
+          <label><input type="checkbox" name="labs" value="Programming Lab"> Programming Lab</label>
+          <label><input type="checkbox" name="labs" value="None" id="noLab"> None this semester</label>
+        </div>
+        <span class="error" id="labsError"></span>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- DOCUMENTS -->
+  <fieldset>
+    <legend>Documents and background</legend>
+    <div class="grid">
+      <div class="field">
+        <label class="req" for="file">2x2 photo or proof of grades</label>
+        <input type="file" id="file" accept="image/png, image/jpeg, application/pdf">
+        <span class="hint">PNG, JPG or PDF, up to 2 MB.</span>
+        <span class="error" id="fileError"></span>
+      </div>
+      <div class="field">
+        <label class="req" for="essay">Extracurricular background / scholarship justification</label>
+        <textarea id="essay" rows="5" maxlength="500"></textarea>
+        <span class="hint">Minimum 50 characters.</span>
+        <span class="error" id="essayError"></span>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- EMERGENCY CONTACT -->
+  <fieldset>
+    <legend>Emergency contact</legend>
+    <div class="grid">
+      <div class="field">
+        <label class="req" for="ecName">Contact name</label>
+        <input type="text" id="ecName">
+        <span class="error" id="ecNameError"></span>
+      </div>
+      <div class="field">
+        <label class="req" for="ecTel">Contact mobile</label>
+        <input type="tel" id="ecTel" pattern="[0-9]{11}" maxlength="11">
+        <span class="error" id="ecTelError"></span>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- TERMS -->
+  <fieldset>
+    <legend>Agreement</legend>
+    <label class="terms">
+      <input type="checkbox" id="terms">
+      I agree to the university terms and the student honor code.
+    </label>
+    <span class="error" id="termsError"></span>
+  </fieldset>
+
+  <div class="buttons">
+    <button type="submit" class="primary">Submit registration</button>
+    <button type="reset" class="ghost">Clear form</button>
+  </div>
+</form>
+
+<!-- MODAL BOX -->
+<dialog id="modal">
+  <div class="modal-head"><h2>Registration received</h2></div>
+  <div class="modal-body"><table id="summary"></table></div>
+  <div class="modal-foot"><button class="primary" id="closeModal" type="button">Close</button></div>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
